@@ -1,0 +1,17 @@
+// Check Exam date can't be past date validation
+    if (!empty($examdate)) {
+        $currentDate = date('Y-m-d');
+
+        if ($examdate < $currentDate) {
+            $message['examdate'] = "Exam date cannot be select the past date...!";
+        }
+    }
+
+// Check Exam date can't be future validation
+if (!empty($AppDate)) {
+        $currentDate = date('Y-m-d');
+
+        if ($AppDate > $currentDate) {
+            $message['AppDate'] = "Application date cannot be select the future date...!";
+        }
+    }
