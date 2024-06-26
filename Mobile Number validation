@@ -1,0 +1,23 @@
+// Validate mobile number
+    if (!empty($mobile_no)) {
+        if (strlen($mobile_no) != 9) {
+            $message['mobile_no'] = "Mobile number must be exactly 9 digits and cannot start with zero..!";
+        } elseif ($mobile_no[0] == '0') {
+            $message['mobile_no'] = "Mobile number cannot start with zero..!";
+        }
+    }
+
+
+if (empty($message)) {
+
+//Create a variable and assign +94 before entering insert the data to the database
+        $mobile_no = '+94' . $mobile_no;
+        $tel_no = '+94' . $tel_no;
+
+        $db = dbConn();
+        $sql = "INSERT INTO `users`"
+                . "(`UserName`, `Password`, `UserImage`, `FirstName`, `LastName`, `Nic`, `Gender`, `Email`, `AddressLine1`, `AddressLine2`, `City`,"
+                . "`TelNo`, `MobileNo`, `UserType`, `user_role`, `Status`,`user_role`, `TitleId`, `DistrictId`)"
+                . "VALUES ('$user_name','$pw','$file_name_new','$first_name','$last_name','$nic','$gender','$email','$address_line1','$address_line2','$city',"
+                . "'$tel_no','$mobile_no','Student','F' ,'1','$title','$district')";
+        $db->query($sql);
