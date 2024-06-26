@@ -1,0 +1,7 @@
+// check whether a valid nic 
+    if (!empty($nic)) {
+        $nicRegex = '/^[0-9]{9}[vVxX]$|^[0-9]{12}$/';
+        if (!preg_match($nicRegex, $nic)) {
+            $message['nic'] = "Invalid NIC No...! NIC No should be 9 numbers with 'V'/'X' (Old NIC) or 12 numbers (New NIC)";
+        }
+    }
